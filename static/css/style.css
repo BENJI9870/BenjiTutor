@@ -1,0 +1,14 @@
+.vertical-center {
+    min-height: 100vh; /* This ensures the minimum height is the full viewport height */
+    display: flex;
+    align-items: center; /* This centers the card vertically */
+}
+
+.login-header {
+    text-align: center;
+    padding: 20px 0; /* Adds vertical padding */
+}
+
+.shadow {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}

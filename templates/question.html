@@ -1,0 +1,114 @@
+{% extends "base.html" %} {% block title %}Questions{% endblock %} {% block
+content %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">Tutor Benji</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/question_list">Question List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/write_question">Ask a Question</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="login-link" href="/login">Log In</a>
+          <a class="nav-link d-none" id="logout-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<input type="hidden" value="{{question.id}}" id="question-id" />
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4">
+      <h3 class="text-center">{{question.title}}</h3>
+      <p>{{question.main_text}}</p>
+      <p class="text-center">Subject: {{question.subject}}</p>
+      <p class="text-center">Posted by: {{question.email.split('@')[0]}}</p>
+      <p class="text-center">Posted on: {{question.datetime}}</p>
+      <div class="d-flex flex-direction-row justify-content-center">
+        <p class="text-center" id="question-like-count">
+          {{question.likes_count}}
+        </p>
+        <button
+          id="question-like-btn"
+          type="button"
+          class="ms-3 btn btn-outline-dark btn-sm"
+        >
+          <i class="bi bi-hand-thumbs-up-fill"></i>
+        </button>
+        <a id="question-edit-btn" href="/edit_question/{{question.id}}"
+          ><button type="button" class="ms-3 btn btn-outline-dark btn-sm">
+            Edit
+          </button></a
+        >
+        <button
+          id="question-delete-btn"
+          type="button"
+          class="ms-3 btn btn-outline-dark btn-sm"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="comments-container" class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <textarea
+        class="form-control"
+        id="comment_text"
+        rows="3"
+        placeholder="Enter your answer here..."
+      ></textarea>
+      <button id="comment-submit-btn" type="button" class="btn btn-dark mt-3">
+        Submit
+      </button>
+    </div>
+    <div class="col-md-8 mb-5" id="comments-list">
+      <div class="d-none">
+        <div id="comment-template" class="card shadow mt-3">
+          <div class="card-body">
+            <div class="row">
+              <p comment-template="username" class="col-md-7">username</p>
+              <p comment-template="datetime" class="col-md-5">12/123/122</p>
+            </div>
+            <p comment-template="comment_text" class="card-text">
+              placeholderplaceholderplaceholderplaceholderpla
+            </p>
+            <div class="d-flex flex-direction-row align-items-center">
+              <p comment-template="like-count" class="card-md-2 m-0 text-start">
+                20
+              </p>
+              <button type="button" class="ms-3 btn btn-outline-dark btn-sm">
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %} {% block styles %}
+  <link rel="stylesheet" href="/static/css/question.css" />
+  {% endblock %} {% block scripts %}
+  <script src="{{url_for('static', filename='js/question.js')}}"></script>
+  <script src="/static/js/navbar.js"></script>
+  {% endblock %}
+</div>

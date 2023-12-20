@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} {% block content
+%}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="d-flex flex-direction-row justify-content-between">
+            <h1 class="writeQuestion-header">Question</h1>
+            <a href="/question_list">
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+              ></button>
+            </a>
+          </div>
+
+          <div
+            class="alert alert-danger d-none"
+            role="alert"
+            id="error-message"
+          ></div>
+
+          <form id="writeQuestion-form">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input
+                type="text"
+                name="title"
+                class="form-control"
+                id="title"
+                required
+                placeholder="Enter your title here..."
+              />
+            </div>
+            <div class="mb-3">
+              <label for="main_text" class="form-label">Elaborate</label>
+              <textarea
+                name="main_text"
+                class="form-control"
+                id="main_text"
+                rows="10"
+                cols="50"
+                placeholder="Enter your question here..."
+              ></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Subject</label>
+              <select name="subject" id="subject" class="form-select">
+                <optgroup label="Select a Subject">
+                  <option value="history">History</option>
+                  <option value="math">Math</option>
+                  <option value="science">Science</option>
+                  <option value="english">English</option>
+                  <option value="other">Other</option>
+                </optgroup>
+              </select>
+            </div>
+            <input type="submit" value="Submit" class="btn btn-dark" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="static/js/write_question.js"></script>
+{% endblock %}

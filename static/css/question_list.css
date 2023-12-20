@@ -1,0 +1,7 @@
+.preview-main-text {
+    max-height: 6vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
