@@ -1,48 +1,51 @@
-{% extends "base.html" %}
-
-{% block title %}Home{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand">Tutor Benji</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/question_list">Question List</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/write_question">Ask a Question</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="login-link" href="/login">Log In</a>
-                <a class="nav-link d-none" id="logout-link" href="/logout">Log Out</a>
-
-            </li>
-        </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/question_list">Question List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/write_question">Ask a Question</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="login-link" href="/login">Log In</a>
+          <a class="nav-link d-none" id="logout-link" href="/logout">Log Out</a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
 
-
-
 <div class="container">
-    <div class="row justify-content-center align-items-center mt-5">
-        <div class="col-md-6">
-            <h1 class="text-center">Tutor Benji</h1>
-            <p class="text-center">A helpful place to ask questions and get answers from the community</p>
-        </div>
-        <div id="list-container"></div>
+  <div class="row justify-content-center align-items-center mt-5">
+    <div class="col-md-6">
+      <h1 class="text-center">Tutor Benji</h1>
+      <p class="text-center">
+        A helpful place to ask questions and get answers from the community
+      </p>
     </div>
-{% endblock %}
+    <div id="list-container"></div>
+  </div>
+  {% endblock %} {% block scripts %}
+  <script src="/static/js/navbar.js"></script>
 
-{% block scripts %}
-<script src="/static/js/navbar.js"></script>
-
-{% endblock %}
+  {% endblock %}
+</div>

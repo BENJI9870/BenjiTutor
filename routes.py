@@ -159,7 +159,7 @@ def api_register():
             })
         
 
-        exists = db.session.query(User.id).filter_by(email=email).first() is not None
+        exists = db.session.query(User.id).filter_by(email=email.lower()).first() is not None
 
         if (exists):
             return jsonify({
@@ -167,7 +167,7 @@ def api_register():
                 "message": "Email already exists"
             })
         
-        email_regex = r'^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
+        email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         if (not re.search(email_regex, email)):
             return jsonify({
                 "success": False,
@@ -198,7 +198,7 @@ def api_register():
         db.session.add(new_user)
         db.session.commit()
         #created new user, tells frontend
-        session['user_id'] = exists.id
+        session['user_id'] = new_user.id
         return jsonify({
             "success": True
     
