@@ -8,7 +8,7 @@ from sqlalchemy import func
 
 
 
-#################### UI ROUTES ####################
+#################### UI ROUTES #####################
 
 @app.route('/')
 def home():
